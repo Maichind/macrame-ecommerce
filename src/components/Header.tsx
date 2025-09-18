@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
+import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { useCart } from "@/context/cartContext";
 import { ShoppingCart, Menu, X } from "lucide-react";
@@ -30,17 +30,22 @@ export default function Header() {
         </Link>
 
         <nav className="hidden md:flex space-x-8 font-medium text-gray-700">
-          {menuItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`hover:text-pink-500 transition-colors duration-300 ${
-                pathname === item.href ? "text-pink-600 font-semibold" : ""
-              }`}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {menuItems.map((item) => {
+            const isActive =
+              pathname === item.href || pathname.startsWith(`${item.href}/`);
+
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`hover:text-pink-500 transition-colors duration-300 ${
+                  isActive ? "text-pink-600 font-semibold" : ""
+                }`}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <Link href="/cart" className="relative">
@@ -54,7 +59,7 @@ export default function Header() {
         </Link>
 
         <button
-          className="md:hidden w-6 h-6 text-gray-700 hover:text-pink-500 transition"
+          className="md:hidden w-6 h-6 text-gray-700 hover:text-pink-500 transition cursor-pointer"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X /> : <Menu />}

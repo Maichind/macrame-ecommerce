@@ -21,11 +21,11 @@ export default function Footer() {
         <div>
           <h3 className="text-lg font-semibold text-gray-800 mb-4">Categorías</h3>
           <ul className="space-y-2 text-gray-600 text-sm">
-            <li><Link href="/products" className="hover:text-pink-500 transition-colors duration-300">Collares</Link></li>
-            <li><Link href="/products/earrings" className="hover:text-pink-500 transition-colors duration-300">Aretes</Link></li>
-            <li><Link href="/products/bracelets" className="hover:text-pink-500 transition-colors duration-300">Pulseras</Link></li>
-            <li><Link href="/products/keychains" className="hover:text-pink-500 transition-colors duration-300">Llaveros</Link></li>
-            <li><Link href="/products" className="hover:text-pink-500 transition-colors duration-300">Accesorios</Link></li>
+            <li><Link href="/products?category=necklaces" className="hover:text-pink-500 transition-colors duration-300">Collares</Link></li>
+            <li><Link href="/products?category=earrings" className="hover:text-pink-500 transition-colors duration-300">Aretes</Link></li>
+            <li><Link href="/products?category=bracelets" className="hover:text-pink-500 transition-colors duration-300">Pulseras</Link></li>
+            <li><Link href="/products?category=keychains" className="hover:text-pink-500 transition-colors duration-300">Llaveros</Link></li>
+            {/* <li><Link href="/products" className="hover:text-pink-500 transition-colors duration-300">Accesorios</Link></li> */}
           </ul>
         </div>
 

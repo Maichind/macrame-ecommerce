@@ -1,19 +1,15 @@
 "use client";
 
+import { Product, productsList } from "./products";
+import { Category, categoriesList } from "./categories";
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
-
-export type Product = {
-  id: number;
-  name: string;
-  price: number;
-  description?: string;
-  image: string;
-  cantidad?: number;
-  category: "bracelets" | "earrings" | "keychains" | "necklaces" | "accessories";
-};
 
 type CartContextType = {
   cart: Product[];
+  products: Product[];
+  categories: Category[];
+  setProducts: React.Dispatch<React.SetStateAction<Product[]>>;
+  setCategories: React.Dispatch<React.SetStateAction<Category[]>>;
   addToCart: (product: Product) => void;
   removeFromCart: (id: number) => void;
   clearCart: () => void;
@@ -26,6 +22,8 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [cart, setCart] = useState<Product[]>([]);
+  const [products, setProducts] = useState<Product[]>(productsList);
+  const [categories, setCategories] = useState<Category[]>(categoriesList);
 
   useEffect(() => {
     const savedCart = localStorage.getItem("cart");
@@ -84,6 +82,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
     <CartContext.Provider
       value={{ 
         cart, 
+        products,  
+        categories,
+        setProducts, 
+        setCategories,
         addToCart, 
         removeFromCart, 
         clearCart, 

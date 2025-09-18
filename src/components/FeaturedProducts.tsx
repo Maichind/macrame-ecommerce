@@ -1,17 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
-import { Product, useCart } from "@/context/cartContext";
-
-const products: Product[] = [
-  { id: 1, name: "Pulsera Tejida Rosa", price: 25000, image: "/hero-macrame.jpg", category: "bracelets" },
-  { id: 2, name: "Aretes en Macramé", price: 30000, image: "/hero-macrame.jpg", category: "earrings" },
-  { id: 3, name: "Llavero Artesanal", price: 15000, image: "/hero-macrame.jpg", category: "keychains" },
-  { id: 4, name: "Collar Bohemio", price: 40000, image: "/hero-macrame.jpg", category: "keychains" },
-];
+import { useCart } from "@/context/cartContext";
 
 export default function FeaturedProducts() {
-  const { addToCart } = useCart();
+  const { products, addToCart } = useCart();
 
   return (
     <section className="py-16 bg-pink-50">
@@ -21,19 +15,21 @@ export default function FeaturedProducts() {
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          {products.map((product) => (
+          {products.slice(0, 4).map((product) => (
             <div
               key={product.id}
               className="bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col"
             >
-              <div className="relative w-full h-48 overflow-hidden">
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  fill
-                  className="object-cover transform hover:scale-105 transition duration-500"
-                />
-              </div>
+              <Link href={`/products/${product.id}`}>
+                <div className="relative w-full h-48 overflow-hidden">
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    className="object-cover transform hover:scale-105 transition duration-500"
+                  />
+                </div>
+              </Link>
 
               <div className="p-4 flex flex-col flex-grow text-center">
                 <h3 className="text-lg font-semibold text-gray-800 line-clamp-1">

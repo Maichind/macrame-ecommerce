@@ -28,14 +28,14 @@ export default function CarritoPage() {
         {cart.map((p) => (
           <div
             key={p.id}
-            className="flex items-center justify-between p-4 border rounded-lg shadow-sm hover:shadow-md transition bg-white"
+            className="flex items-center justify-between h-40 p-4 border rounded-lg shadow-sm hover:shadow-md transition bg-white"
           >
             <div className="flex items-center gap-4">
               <Image
                 src={p.image}
                 alt={p.name}
-                width={200}
-                height={200}
+                width={130}
+                height={130}
                 className="rounded-lg object-cover"
               />
               <div>

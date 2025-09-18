@@ -1,10 +1,14 @@
+import Image from "next/image";
+
 export default function AboutUsPage() {
   return (
     <section className="max-w-6xl mx-auto px-4 py-12">
       <div className="relative mb-12">
-        <img
+        <Image
           src="/hero-macrame.jpg"
           alt="Macramé artesanal"
+          width={500}
+          height={500}
           className="w-full h-64 object-cover rounded-2xl"
         />
         <div className="absolute inset-0 bg-pink-900/30 rounded-2xl flex items-center justify-center">
