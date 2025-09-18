@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://tu-dominio.com"),
+  metadataBase: new URL("https://macrame-ecommerce.vercel.app"),
   title: "E-commerce Macramé",
   description: "E-commerce de artículos macramé hechos a mano: pulseras, aretes, llaveros y más.",
   keywords: [
@@ -41,13 +41,13 @@ export const metadata: Metadata = {
 	authors: [{ name: 'Yussy Montero, Maichol Mindiola' }],
 	creator: 'Maichol Mindiola',
   openGraph: {
-    title: "Tu Tienda de Macramé",
+    title: "Macramé Store",
     description: "Diseños únicos y artesanales en macramé.",
-    url: "https://tu-dominio.com",
+    url: "https://macrame-ecommerce.vercel.app",
     siteName: "Tienda Macramé",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/hero-macrame.jpg",
         width: 1200,
         height: 630,
         alt: "E-commerce de Macramé",
@@ -55,6 +55,12 @@ export const metadata: Metadata = {
     ],
     locale: "es_CO",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Macramé Store",
+    description: "Arte en Macramé hecho a mano.",
+    images: ["/hero-macrame.jpg"],
   },
 };
 
